@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="server"
+                   namespace="server.Runes">
+
+	<!-- more mapping info here -->
+	<class name="IRunesPage" table="runes_pages">
+		<id name="Id" type="Int64">
+			<generator class="increment"/> 
+			<param name="sequence">runes_page_id</param>		
+		</id>
+		<property name="Name" type="String" />
+		<property name="ChampionName" type="String"/>
+		<property name="MainPath" type="String"/>
+		<property name="MainPath" type="String"/>
+		// KeyStone
+	</class>
+
+</hibernate-mapping>

@@ -1,7 +1,15 @@
-﻿namespace server.Runes
+﻿using server.Champion;
+
+namespace server.Runes
 {
     public interface IRunesPage
     {
+
+        public string Name { get; set; }
+
+        public IChampion Champion { get; set; }
+
+        public string ChampionName { get;}
         // Main Tree
         public string MainPath { get; set; }
 

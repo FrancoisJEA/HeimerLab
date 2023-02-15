@@ -5,13 +5,15 @@ namespace server.Runes
 {
     public class RunesPage : IRunesPage
     {
-        private string _pathMain, _keyStone, _slotOneMain, _slotTwoMain, _slotThreeMain, _pathSecond, _slotOneSecond, _slotTwoSecond, _shardOne, _shardTwo, _shardThree; 
+        private string _name,_pathMain, _keyStone, _slotOneMain, _slotTwoMain, _slotThreeMain, _pathSecond, 
+            _slotOneSecond, _slotTwoSecond, _shardOne, _shardTwo, _shardThree; 
         private IChampion? _champion;
-        private RunesItems Runes;
+        private RunesItems Runes { get;  set; }
 
-        public RunesPage(int pathMain,int keyStone , int OneMain, int TwoMain, int ThreeMain, int pathSecond, 
+        public RunesPage(string name ,int pathMain,int keyStone , int OneMain, int TwoMain, int ThreeMain, int pathSecond, 
             int OneSecond,int  TwoSecond,int shardOne, int shardTwo, int shardThree) 
         {
+            _name= name;
             _pathMain = RunesItems.GetPathFromNumber(pathMain, Runes.GetPath);
             _keyStone = this.GetKeyStoneFromNumber(keyStone);
             _slotOneMain = this.GetSlotOneMainFromNumber(OneMain);
@@ -24,12 +26,32 @@ namespace server.Runes
             _shardOne = GetShardOneFromNumber(shardOne);
             _shardTwo = GetShardTwoFromNumber(shardTwo);
             _shardThree = GetShardThreeFromNumber(shardThree);
-
+        }
+        public RunesPage(string name, string mainPath, string keyStone, string OneMain, string TwoMain, string ThreeMain, string pathSecond,
+            string OneSecond, string TwoSecond, string shardOne, string shardTwo, string shardThree)
+        {
+            _name = name;
+            _pathMain = mainPath; _keyStone = keyStone; _slotOneMain = OneMain; _slotTwoMain = TwoMain; _slotThreeMain  = ThreeMain;
+            _pathSecond = pathSecond; _slotOneSecond = OneSecond; _slotTwoSecond = TwoSecond;
+            _shardOne = shardOne; _shardTwo = shardTwo; _shardThree = shardThree;
 
         }
 
         #region GET/SET
-        
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        public IChampion Champion 
+        { 
+            get { return _champion; }
+            set { _champion = value; } 
+        }
+        public string ChampionName
+        {
+            get { return _champion.Name; }
+        }
         // Main Rune Tree
         public string MainPath
         {
@@ -89,13 +111,6 @@ namespace server.Runes
         {
             get { return _shardThree; }
             set { _shardThree = value; }
-        }
-
-        // Champion
-        public IChampion Champion
-        {
-            get { return _champion; }
-            set { _champion = value; }
         }
 
         #endregion
