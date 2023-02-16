@@ -1,4 +1,6 @@
-﻿namespace server.Champion
+﻿using server.Runes;
+
+namespace server.Champion
 {
     public class Champion : IChampion
     {
@@ -13,6 +15,7 @@
         private double _armor;
         private float _critDamage;
         private int _moveSpeed;
+        public IRunesPage RunesPage { get; private set; }
 
         #endregion
 

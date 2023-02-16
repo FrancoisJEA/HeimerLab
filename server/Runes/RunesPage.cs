@@ -8,7 +8,7 @@ namespace server.Runes
         private string _name,_pathMain, _keyStone, _slotOneMain, _slotTwoMain, _slotThreeMain, _pathSecond, 
             _slotOneSecond, _slotTwoSecond, _shardOne, _shardTwo, _shardThree; 
         private IChampion? _champion;
-        private RunesItems Runes { get;  set; }
+        private RunesItems Runes;
 
         public RunesPage(string name ,int pathMain,int keyStone , int OneMain, int TwoMain, int ThreeMain, int pathSecond, 
             int OneSecond,int  TwoSecond,int shardOne, int shardTwo, int shardThree) 
